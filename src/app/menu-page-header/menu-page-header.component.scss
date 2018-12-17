@@ -1,0 +1,6 @@
+@import '../../scss/mixins';
+section{
+    height: 370px;
+    @include backgroundImg('/assets/images/menu-page-header/header.png');
+
+}

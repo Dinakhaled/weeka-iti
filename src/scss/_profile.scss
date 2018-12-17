@@ -1,0 +1,117 @@
+.data{
+    i{
+        font-size: 20px;
+        color: #fff;
+        background-color: $mainColor;
+        padding: 5px;
+        border-radius: 50%;
+    }
+    .profile-img{
+        border: 5px solid $mainColor;
+        z-index: 1;
+    }
+    .profile-data{
+        position: relative;
+        display: flex;
+        align-items: center;       
+        .profile-info{
+            position: absolute;
+            width: 100%;
+            padding: 30px 10px ;
+            border-radius: 0;
+            box-shadow: 0px 3px 10px 0px rgba(133, 133, 133, 0.25);
+        }
+        .profile-editInfo{
+            position: absolute;
+            width: 100%;
+            padding: 30px 10px ;
+            border-radius: 0;
+            box-shadow: 0px 3px 10px 0px rgba(133, 133, 133, 0.25);
+            input{
+                display: inline-block;
+                width: 45%;
+                margin-left: 10px;
+            }
+            textarea{
+                display: block;
+                margin-left: 10px;                    
+                width: 100%;
+                border: 0;
+                border-bottom: 1px solid $textColor;
+                border-radius: 0;
+                &:focus{
+                    @include boxShadow(none);
+                    border-color: $sconedColor;
+                }
+            }
+            .mail{
+                width: 85%;                    
+            }
+            .phone{
+                display: inline-block;
+                border: 0;
+                border-bottom: 1px solid $textColor;
+                border-radius: 0;
+                width: 65px;
+                &:focus{
+                    @include boxShadow(none);
+                    border-color: $sconedColor;
+                }
+            }
+            
+        }
+        .changePass{
+            text-decoration: underline;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+.modal-body{
+    padding-left: 45px;
+    padding-right: 45px;        
+    .form-control{
+        border: 0;
+        border-bottom: 1px solid $textColor;
+        border-radius: 0;
+        &:focus{
+            @include boxShadow(none);
+            border-color: $sconedColor;
+        }
+    }
+}
+// ============== bootstrap style override =============
+:host /deep/ .btn-link,
+:host /deep/ .btn-outline{
+    display: none;
+}
+:host /deep/ input.form-control{
+    border: 0;
+    border-bottom: 1px solid $textColor;
+    border-radius: 0;    
+    width: 65px;
+    &:focus{
+        @include boxShadow(none);
+        border-color: $sconedColor;
+    }
+}
+:host /deep/ .btn-outline-primary{
+    color: $textColor;
+    border-color: $textColor;
+    &:focus{
+        @include boxShadow(none);
+        outline: 0;
+    }
+    &:hover{
+        background-color: $mainColor;
+        color: #fff;
+        border: 1px solid $mainColor;            
+    }
+}
+:host /deep/ .btn-outline-primary:not(:disabled):not(.disabled):active{
+    background-color: $mainColor;
+    color: #fff;
+    border: 1px solid $mainColor;
+    @include boxShadow(none);
+}

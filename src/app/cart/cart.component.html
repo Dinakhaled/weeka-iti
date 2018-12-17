@@ -1,0 +1,106 @@
+<aside #cart class="cart">
+  <div class="cart-content" *ngIf="allCartMeals.size != 0">
+    <h3 class="text-center mt-0">طلبك</h3>
+    <div class="media" *ngFor="let product of allCartMeals">
+      <img class="ml-4" width="90" height="90" src={{product.image}} alt="Generic placeholder image">
+      <div class="media-body">
+        <div class="order-content d-flex justify-content-between">
+          <div class="details">
+            <h4 class="mt-0 d-inline-block meal-title">{{product.mealTitel}}</h4>
+            <div class="price-qt d-flex align-items-center justify-content-between">
+              <div class="qty-input">
+                <i (click)="plus(product.id)" class="more">+</i>
+                <input type="text" value={{product.qty}}/>
+                <i (click)="minus(product.id)" class="less">-</i>
+              </div>
+              <h4 class="ar-price"> {{product.mealPrice}}ج</h4>
+            </div>
+          </div>
+          <i class="icon-cancel" (click)="removeItem(product.id)"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkout text-center">
+      <button class="btn cancel-order" (click)="cancelOrder()">إلغاء الطلب</button>
+      <div class="row">
+        <div class="col-6">
+          <h4>المجموع</h4>
+        </div>
+        <div class="col-6">
+
+          <h4>{{totalOneMeal}} جنيه</h4>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <h4>التوصيل</h4>
+        </div>
+        <div class="col-6">
+          <h4> {{delivery}} جنيه</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <h4> الإجمالى</h4>
+        </div>
+        <div class="col-6">
+          <h4>{{total}} جنيه</h4>
+        </div>
+      </div>
+
+      <button class="btn checkout-btn" (click)="chefNotifications()">الأن</button>
+      <button class="btn checkout-btn m-0" (click)="open(content)">مؤجل</button>
+
+    </div>
+  </div>
+
+  <div class="empty-cart text-center" *ngIf="allCartMeals.size == 0">
+    <i class="icon-basket"></i>
+    <h3>السلة فارغة</h3>
+  </div>
+
+  <!-- modal for delay the order -->
+  <ng-template #content let-c="close" let-d="dismiss" class="custom-modal">
+    <div class="modal-header custom-modal d-flex justify-content-between">
+      <h4 class="modal-title">الطلب مؤجل الى:</h4>
+      <button type="button" class="close p-0 m-0" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form name="modalForm" #modalForm="ngForm">
+        <div class="form-group custom-modal">
+          <label for="dateOfBirth">تاريخ تسليم الطلب</label>
+          <div class="input-group mb-4">
+            <input id="dateOfBirth" [(ngModel)]="delayOrder.date" class="form-control ml-3" placeholder="يوم - شهر - سنة" name="dp" ngbDatepicker #dp="ngbDatepicker">
+
+          </div>
+
+          <label for="dateOfBirth">توقيت تسليم الطلب</label>
+          <div class="input-group">
+
+            <input type="number" class="form-control ml-3" aria-describedby="emailHelp" placeholder="دقيقة" name="minuite" [(ngModel)]="delayOrder.minuite">
+            <input type="number" class="form-control ml-3" aria-describedby="emailHelp" placeholder="ساعة" name="hours" [(ngModel)]="delayOrder.hours">
+            <select name="amOrpm" [(ngModel)]="delayOrder.amOrpm" id="">
+              <option [selected]="delayOrder.amOrpm == 'ص'" >ص</option>
+              <option [selected]="delayOrder.amOrpm == 'م'">م</option>              
+            </select>
+
+            <hr>
+
+          </div>
+
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer justify-content-start">
+      <button type="button" class="btn small-btn" (click)="c('Save click')" (click)="saveTime()">حفظ</button>
+    </div>
+  </ng-template>
+
+
+</aside>

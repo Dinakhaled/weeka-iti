@@ -1,0 +1,12 @@
+/* ============== notifications ============== */
+.notifications{
+    padding: 80px 0px;
+    .title{
+        background-color: $sconedColor;
+        padding: 10px 20px;
+        font-family: $headlinesFonts;
+    }
+    .total-price{
+        font-family: $headlinesFonts;        
+    }
+}

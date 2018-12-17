@@ -1,0 +1,11 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/general';
+@import '../../scss/forms';
+.become-cooker{
+    @include backgroundImg('../../assets/images/become-acooker/become-acooker-bg.png',right);
+        .form-bg{
+            @include backgroundImg('../../assets/images/become-acooker/become-acooker-bg2.png',right);
+        }
+
+    }

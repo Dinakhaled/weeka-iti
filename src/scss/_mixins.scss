@@ -1,0 +1,80 @@
+/* ===========  background image ===========*/
+@mixin backgroundImg($imgpath,$position:0 0,$size: cover,$repeat: no-repeat) {
+    background: transparent url(#{$imgpath}) $repeat $position/$size;
+}
+@mixin backgroundImg2($imgpath,$position:0px 0px,$size: contain,$repeat:repeat) {
+  background: transparent url(#{$imgpath}) $repeat $position/$size;
+}
+@mixin backgroundImgContain($imgpath,$size: contain,$repeat: no-repeat) {
+  background: transparent url(#{$imgpath}) $repeat;
+}
+
+/* ===========  generic transform ===========*/
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+/* ===========  generic transition ===========*/
+@mixin transition($transition) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+/*========== ::before and ::afte mixin================*/
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+
+/*========== links status ================*/
+
+  @mixin links ($link, $visit, $hover, $active) {
+    a {
+      color: $link;
+      &:visited {
+        color: $visit;
+      }
+      &:hover {
+        color: $hover;   
+      }
+      &:active {
+        color: $active;
+      }
+    }
+  }
+
+/*========== overlay ================*/
+
+  @mixin overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+/*========== font size ================*/
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+@mixin font-size($size) { 
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+// ============== box shadow ===========
+@mixin boxShadow($shadow){
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+  box-shadow: $shadow;
+}

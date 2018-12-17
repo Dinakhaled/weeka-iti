@@ -1,0 +1,18 @@
+[
+    {
+        "userEmail":"dina@gmail.com",
+        "userPass":"123"
+    },
+    {
+        "userEmail":"sahar@gmail.com",
+        "userPass":"456"
+    },
+    {
+        "userEmail":"raneen@gmail.com",
+        "userPass":"678"
+    },
+    {
+        "userEmail":"sara@gmail.com",
+        "userPass":"101"
+    }
+]

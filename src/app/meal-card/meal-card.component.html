@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-12 col-lg-6 " *ngFor="let data of mealData; let i=index">
+        <div class="media weekaCard w-100 mb-5 align-items-center">
+            <a routerLink="/singleItem/{{(data.mealTitel)}}">
+                <img src="{{data.image}}" alt="Generic placeholder image">
+            </a>
+        <div class="media-body position-relative text-center">
+            <!-- Start fav meal icon -->
+                <div class="btn-group btn-group-toggle fav">
+                    <label class="btn-primary custom" ngbButtonLabel>
+                    <input type="checkbox" ngbButton [(ngModel)]="data.favorite">   
+                    <div *ngIf="!data.favorite ">
+                        <img class="" src="../../assets/images/not-fav.png" alt="" >
+                    </div>
+                    <div *ngIf="data.favorite">
+                        <img class="" src="../../assets/images/fav.png" alt="">
+                    </div>
+                    </label>
+                </div>
+            <!--end fav meal icon -->
+            <!--Start meal rating  -->
+            <ngb-rating [(rate)]="data.mealRate" max=5 [readonly]="true">
+                    <ng-template let-fill="fill">
+                      <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                    </ng-template>
+            </ngb-rating>
+            <!--end meal rating -->
+                <h3 class="mt-0">{{data.mealTitel}}</h3>
+                <p>{{data.mealDescription}}</p>
+                <div class="price rounded-circle position-absolute">
+                    <h3> {{data.mealPrice}} ج </h3>
+                    <div class="price-bg rounded-circle position-absolute">
+                    </div>
+                </div>
+                <a routerLink='/singleItem/{{(data.mealTitel)}}'><button class="small-btn">اطلب</button></a>
+                <div class="media-footer">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>الشيف: {{data.cookerName}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>عدد مرات الطلب: {{data.orders}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

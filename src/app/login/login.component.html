@@ -1,0 +1,97 @@
+<section class="login">
+  <!-- ==========Navbar========== -->
+  <div class="nav pt-5 text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 offset-md-7">
+          <a routerLink="">
+            <img src="../assets/images/logo.png" alt="">
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a routerLink="../login" class="border p-2">تسجيل الدخول</a>
+          <a routerLink="../becomeacooker" class="headlinesFonts pr-3">اصبح طباخ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="form-content">
+      <div class="form-bg w-100 d-flex align-items-center">
+        <div class="row justify-content-around">
+          <div class="col-md-11">
+            <div class="headline make-account text-white">
+              <h2>لا تمتلك حساب؟</h2>
+              <p>وعند موافقة العميل المبدئيه على التصميم يتم إزاله هذا النص من التصميم ويتم وضع النصوص النهائية المطلوبة.</p>
+              <a routerLink="../registration">
+                <button class="btn big-btn-w">إنشاء حساب</button>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="main-form">
+        <!-- title -->
+        <div class="headline text-center">
+          <h2>تسجيل الدخول</h2>
+          <hr class="mt-3">
+        </div>
+
+        <!-- form -->
+        <form name="login" #login="ngForm" (ngSubmit)="loginData(login)" novalidate>
+          <div class="form-group">
+            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" aria-describedby="emailHelp" placeholder="البريد الإلكترونى" name="userEmail"  #email="ngModel" [(ngModel)]="userLogin.userEmail" required />
+          </div>
+
+          <!-- validation Email message -->
+          <div *ngIf="email.invalid && (email.dirty || email.touched || login.submitted)">
+              <div class="error-msg" *ngIf="email.errors.required">
+                  * هذا الحقل مطلوب
+              </div>
+              <div class="error-msg" *ngIf="email.errors && login.submitted && !email.errors.required ">
+                  * البريد الالكترونى غير صحيح
+              </div>
+          </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control" aria-describedby="emailHelp" placeholder="كلمة السر" name="userPass" [(ngModel)]="userLogin.userPass" #pass="ngModel" required />
+          </div>
+
+          <!-- validation Password message -->
+          <div *ngIf="pass.invalid && (pass.dirty || pass.touched || login.submitted)">
+              <div class="error-msg" *ngIf="pass.errors.required">
+                  * هذا الحقل مطلوب
+              </div>
+          </div>
+
+          <!-- validation member message -->
+              <div class="error-msg text-center" *ngIf="checkUserFlage">
+                بيانات غير صحيحة
+              </div>
+
+              <div class="d-flex justify-content-between forget-pass">
+                <div class="remember-me">
+                  <input class="styled-checkbox mr-3" id="styled-checkbox-1" type="checkbox" value="value1">
+                  <label for="styled-checkbox-1">تذكرنى</label>
+  
+                </div>
+  
+            <div><a class="text-dark">نسيت كلمة السر؟</a></div>
+                
+              </div>
+
+
+          <div class="text-center">
+            <button type="submit" class="btn big-btn">تسجيل الدخول</button>
+          </div>
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</section>

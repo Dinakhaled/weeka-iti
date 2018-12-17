@@ -1,0 +1,50 @@
+<!-- ==========Navbar========== -->
+<nav class="bg-dark pt-4 pb-2 text-white">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-md-2">
+        <a routerLink="">
+          <img src="../assets/images/logo.png" alt="">
+        </a>
+      </div>
+      <div class="col-md-4">
+        <div ngbDropdown placement="bottom-right" class="navdrop d-inline-block pl-3">
+          <button class="btn bg-transparent" id="dropdownBasic1" ngbDropdownToggle>
+            <i class="icon-down-open pl-2"></i>أسم المستخدم
+
+          </button>
+          <div class="p-0 rounded-0" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">الصفحة الشخصية</button>
+            <button class="dropdown-item">تسجيل الخروج</button>
+          </div>
+        </div>
+        <a href="#" class="text-white p-2">اصبح طباخ</a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+<app-user-info></app-user-info>
+<div class="container">
+  <div class="headline mb-5">
+    <h2 class="text-center">طلباتك السابقة</h2>
+    <hr class="mb-5">
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <app-user-history></app-user-history>
+    </div>
+    <div class="col-md-4">
+      <app-cart></app-cart>
+    </div>
+  </div>
+  <div class="headline mb-5">
+    <h2 class="text-center"> اكلاتك المفضلة</h2>
+    <hr class="mb-5">
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <app-user-history></app-user-history>
+    </div>
+  </div>
+</div>

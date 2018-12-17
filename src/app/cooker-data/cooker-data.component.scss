@@ -1,0 +1,28 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/general';
+@import '../../scss/profile';
+.data{
+    .cooker-address{
+        padding-top: $section-space;
+        h5
+        {
+            font-family: $headlinesFonts;
+            @include font-size(18px);   
+        }
+        select{
+            border: 0;
+            border-bottom: 1px solid $textColor;
+            border-radius: 0;
+            &:focus{
+                @include boxShadow(none);
+                border-color: $sconedColor;
+            }
+            &:active{
+                @include boxShadow(none);
+                border-color: $sconedColor;
+            }
+        }
+    }
+}
+    

@@ -1,0 +1,82 @@
+<section class="notifications">
+  <div class="container">
+    <div class="noti-full" *ngIf="confirmedMeals.length != 0">
+      <!-- Title -->
+      <div class="title">
+        <div class="row">
+          <!-- meal title -->
+          <div class="col-4">
+            <h4>الوجبة</h4>
+          </div>
+          <!-- price -->
+          <div class="col-2">
+            <h4>السعر</h4>
+          </div>
+          <!-- quantity -->
+          <div class="col-2">
+            <h4>الكمية</h4>
+          </div>
+          <!-- total -->
+          <div class="col-2">
+            <h4>الإجمالى</h4>
+          </div>
+          <!-- confirm -->
+          <div class="col-2">
+            <h4>تاكيد الطلب</h4>
+          </div>
+        </div>
+      </div>
+      <!-- Content -->
+      <div class="content mt-3" *ngFor="let prop of confirmedMeals">
+        <div class="row align-items-center">
+          <!-- meal title -->
+          <div class="col-4">
+            <div class="media">
+              <img class="ml-4" width="90" height="90" src="{{prop.image}}" alt="placeholder image">
+              <div class="media-body">
+                <h4>{{prop.mealTitel}}</h4>
+                <p>{{prop.mealDescription}}</p>
+              </div>
+            </div>
+          </div>
+          <!-- price -->
+          <div class="col-2">
+            <h4>{{prop.mealPrice}} ج</h4>
+          </div>
+          <!-- quantity -->
+          <div class="col-2">
+            <h4>{{prop.qty}}</h4>
+          </div>
+          <!-- total -->
+          <div class="col-2">
+            <h4>{{prop.totalOneMeal}} جنية</h4>
+          </div>
+          <!-- confirm -->
+          <div class="col-2">
+            <button class="btn small-btn" (click)="confirmOrder(prop.id)">تم</button>
+          </div>
+        </div>
+        <hr>
+      </div>
+
+      <!-- total price -->
+      <div class="total-price">
+        <div class="row">
+          <div class="col-8">
+            <h4>المجموع</h4>
+          </div>
+          <div class="col-4">
+            <h4> {{totalAllMeals}} جنية</h4>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="noti-empty" *ngIf="confirmedMeals.length == 0">
+      <h2 class="text-center">ليس لديك طلبات</h2>
+    </div>
+
+  </div>
+</section>

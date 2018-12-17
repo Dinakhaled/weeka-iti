@@ -1,0 +1,15 @@
+.smallCard{
+    height: 175px;
+    .cardImg{
+        height: 175px;
+    }
+    .price{
+        top: 17%;
+    }
+    ngb-rating{
+        left: -1px;
+    }
+    .fav{
+        top: -7%;
+    }
+}

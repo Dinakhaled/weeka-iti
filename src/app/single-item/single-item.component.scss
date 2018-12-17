@@ -1,0 +1,32 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/general';
+
+.singleMeal{
+    padding: $section-space 0;
+    .card{
+        border: none;
+        .fav{
+            position: absolute;
+            top: 5%;
+            right: 90%;
+            background-color: $sconedColor;
+        }
+        rating{
+            transform: rotate(-90deg);
+            position: absolute;
+            left: -5%;
+            bottom: 13%;
+        }
+    }
+        
+}
+.mealCmnts{
+    padding-bottom: $section-space;
+}
+
+ngb-rating
+{
+    top: 79%;
+    left: -4%
+}

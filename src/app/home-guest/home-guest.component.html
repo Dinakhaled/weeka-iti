@@ -1,0 +1,61 @@
+<section id="home-guest">
+  <!-- Start Fold section include navbar and hero image-->
+  <section id="fold">
+    <div class="nav pt-5 text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 offset-md-7">
+            <a routerLink=" ">
+              <img src="../assets/images/logo.png" alt="">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a routerLink="login" class="border p-2">تسجيل الدخول</a>
+            <a routerLink="becomeacooker" class="headlinesFonts pr-3">اصبح طباخ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Start Fold data include the slogan and menu-->
+    <section id="fold-data">
+      <div class="container">
+        <h1 class="text-white text-center">
+          الشعار المفروض يتكتب هنا بس احنا لسه مالفنهوش</h1>
+      </div>
+      <app-home-menu></app-home-menu>
+    </section>
+    <!-- Start top Meal cards section independs on user area-->
+    <section id="cards">
+      <div class="container">
+        <app-meal-card></app-meal-card>
+      </div>
+    </section>
+  </section>
+  <section id="how-we-work" class="text-center mb-5">
+    <div class="headline">
+      <h2>كيف نعمل ؟ </h2>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3" *ngFor="let data of workData">
+          <img src="{{data.icon}}" class="mb-4" alt="">
+          <h3 class="mb-4">{{data.titel}}</h3>
+          <p>{{data.data}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+<a routerLink="editCooker">
+  <button class="btn small-btn">edit chef</button>
+</a>
+
+<a routerLink="editUser">
+  <button class="btn small-btn mr-4">edit user</button>
+</a>
+<!-- <app-edit-cooker></app-edit-cooker> -->
+<!-- <a routerLink="editCooker"><button class="btn small-btn">edit page</button></a> -->
+<!-- <app-edit-cooker></app-edit-cooker> -->

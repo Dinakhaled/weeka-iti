@@ -1,0 +1,33 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/reset';
+footer{
+    @include backgroundImg('../../assets/images/footer/chilis.png');
+    background-position: bottom left;
+    font-size: 1em;
+    color: $textColor;
+    // height: 230px;
+    padding: 50px 0;
+    background-color:$backgroundFooter;
+    background-size: initial;
+
+    img{
+        padding-bottom: 20px;
+    }
+    i{
+        padding: 10px;
+        
+    }
+
+    i:hover{
+       background-color: $mainColor;
+       border-radius: 50%;
+       color:$whiteColor;
+    }
+    p{
+        padding-top: 20px;
+    }
+    @media (max-width: 576px) { 
+        background-image: none;
+     }
+}

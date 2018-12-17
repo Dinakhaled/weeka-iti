@@ -1,0 +1,19 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/general';
+@import '../../scss/forms';
+.registration{
+    @include backgroundImg('../../assets/images/registration/register-bg.png',right);
+        .form-bg{
+            @include backgroundImg('../../assets/images/registration/register-bg2.png',right);
+        }
+        .make-account{
+            width: 50%;
+            h4{
+                font-family: $headlinesFontBold;
+                @include font-size(30px);
+                
+            }
+        }
+
+    }

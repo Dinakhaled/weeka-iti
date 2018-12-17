@@ -1,0 +1,88 @@
+<section>
+  <!-- ==========Navbar========== -->
+  <nav class="bg-dark pt-4 pb-2 text-white">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-md-2">
+          <a routerLink="">
+            <img src="../assets/images/logo.png" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <div ngbDropdown placement="bottom-right" class="navdrop d-inline-block pl-3 ">
+            <button class="btn bg-transparent" id="dropdownBasic1" ngbDropdownToggle>
+              <i class="icon-down-open pl-2"></i>الحالة</button>
+            <div class="p-0 rounded-0" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item">متواجد</button>
+              <button class="dropdown-item">غير متواجد</button>
+            </div>
+          </div>
+          <div ngbDropdown placement="bottom-right" class="navdrop d-inline-block pl-3">
+            <button class="btn bg-transparent" id="dropdownBasic1" ngbDropdownToggle>
+              <i class="icon-down-open pl-2"></i>أسم الطباخ
+            </button>
+            <div class="p-0 rounded-0" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item">الصفحة الشخصية</button>
+              <button class="dropdown-item">تسجيل الخروج</button>
+            </div>
+          </div>
+          <a href="#" class="border text-white p-2">إضافة أكله</a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="container tabs">
+    <ngb-tabset type="pills" class="mb-5">
+
+      <ngb-tab>
+        <ng-template ngbTabTitle>
+          البيانات
+        </ng-template>
+        <ng-template ngbTabContent>
+          <app-cooker-data></app-cooker-data>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab>
+        <ng-template ngbTabTitle>
+          اكلاتك
+        </ng-template>
+        <ng-template ngbTabContent>
+
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab>
+        <ng-template ngbTabTitle>
+          احصائيات
+        </ng-template>
+        <ng-template ngbTabContent>
+          <app-cheaf-statistic></app-cheaf-statistic>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab>
+        <ng-template ngbTabTitle>
+          اموالك
+        </ng-template>
+        <ng-template ngbTabContent>
+          <app-payment></app-payment>
+        </ng-template>
+      </ngb-tab>
+
+      <ngb-tab>
+        <ng-template ngbTabTitle>
+          الطلبات
+        </ng-template>
+        <ng-template ngbTabContent>
+          <app-notification></app-notification>
+        </ng-template>
+      </ngb-tab>
+
+    </ngb-tabset>
+
+
+  </div>
+</section>

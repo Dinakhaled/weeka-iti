@@ -1,0 +1,41 @@
+{
+    "topMeals":
+    [
+        {
+            "MealName":"مكرونة",
+            "avgRate" :5
+        },
+        {
+            "MealName":"فراخ مشوية",
+            "avgRate" :4
+        },
+        {
+            "MealName":"شوربة كريمة",
+            "avgRate" :3
+        },
+        {
+            "MealName":"سلطة جمبرى",
+            "avgRate" :3
+        }
+    ],
+    "lowRatedMeals":
+    [
+        {
+            "MealName":"كشرى",
+            "avgRate" :0
+        },
+        {
+            "MealName":"بطاطس",
+            "avgRate" :1
+        },
+        {
+            "MealName":"فته",
+            "avgRate" :1
+        },
+        {
+            "MealName":"شوربة",
+            "avgRate" :1
+        }
+    ]
+
+}

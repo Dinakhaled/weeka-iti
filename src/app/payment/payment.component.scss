@@ -1,0 +1,48 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/general';
+.your-mony{
+    @include font-size(20px);
+    mark{
+        background: $mainColor;
+        color: $whiteColor;
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+    h3{
+        font-family: $headlinesFonts;
+    }
+}
+.choose-payment {
+    h3{
+        font-family: $headlinesFonts;        
+    }
+    input{
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $textColor;
+    }
+}
+
+:host /deep/ .card-header{
+    background: $sconedColor;
+    border-radius: 0;
+    font-family: $headlinesFontBold;
+    @include font-size(18px);
+}
+:host /deep/ a{
+    color: $headlinesColor;
+}
+:host /deep/ .card{
+    border: none;
+
+}
+
+select,input{
+    border: none;
+    border-bottom: 1px solid $textColor;
+    border-radius: 0;
+    &:focus{
+        box-shadow: none;
+    }
+}

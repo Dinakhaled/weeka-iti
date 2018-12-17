@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "fName": "هويدا",
+        "lName": "محسن",
+        "bio": "الأولاد هم أصعب نقاد للأكل، من الصعب جدا ارضائهم. أنا أم لأربعة بنات، طالما دللتهم بتحضير الوجبات المفضلة لكلا منهم. ",
+        "email": "Houida_Hesain@gmail.com",
+        "phonePrefix": "012",
+        "phone": "75698252",
+        "gender": "أنثي",
+        "district": "لوران",
+        "street": "شارع الاقبال",
+        "buildingNo": "12",
+        "floorNo": "الدور الثاني",
+        "flatNo": "3",
+        "notice": "بجوار ماكدونالدز",
+        "cookerImg": "../assets/images/edit-cooker/chef_pp.jpg"
+    }
+]

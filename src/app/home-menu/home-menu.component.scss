@@ -1,0 +1,45 @@
+@import '../../scss/variables';
+
+button.search {
+    background-color: rgba(255, 255, 255, 0.349);
+    border-radius: 0;
+    // outline: .9em solid rgba(255, 255, 255, 0.102);
+    display: block;
+    width: 100%;
+    
+
+  }
+ .home-menu{
+    outline: .9em solid rgba(255, 255, 255, 0.102);
+    padding: 0;
+    .search,.menu
+    {
+      padding: 13px;
+      
+    }
+    .search
+    {
+      text-align: right;
+    }
+    .dropdown-toggle::after
+    {
+      float: left;
+      font-size: 37px;
+      position: relative;
+      top: 8px;
+
+    }
+    .show
+    {
+      width: 100%;
+      text-align: right;
+    }
+   
+    .dropdown-item:hover{
+      background-color:$sconedColor;
+    }
+    .dropdown-item:active{
+      background-color:$mainColor;
+
+    }
+  }

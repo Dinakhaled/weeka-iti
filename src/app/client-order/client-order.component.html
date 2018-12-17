@@ -1,0 +1,323 @@
+<!-- ========== Navbar ========== -->
+<div class="nav pt-4 pb-3 bg-dark text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 offset-md-7">
+        <a routerLink="">
+          <img src="../assets/images/logo.png" alt="">
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a routerLink="../login" class="border p-2">تسجيل الدخول</a>
+        <a routerLink="../becomeacooker" class="headlinesFonts pr-3">اصبح طباخ</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="client-order">
+  <div class="page-title text-center headline">
+    <h2>تأكيد طلباتك</h2>
+    <hr>
+  </div>
+  <div class="order-content">
+    <!-- ============= Order Ditailes ============= -->
+    <section class="notifications">
+      <div class="container">
+        <div class="noti-full">
+          <!-- Title -->
+          <div class="title">
+            <div class="row">
+              <!-- meal title -->
+              <div class="col-4">
+                <h4>الوجبة</h4>
+              </div>
+              <!-- price -->
+              <div class="col-2">
+                <h4>السعر</h4>
+              </div>
+              <!-- quantity -->
+              <div class="col-2">
+                <h4>الكمية</h4>
+              </div>
+              <!-- total -->
+              <div class="col-2">
+                <h4>إجمالى الوجبة</h4>
+              </div>
+              <!-- confirm -->
+              <div class="col-2">
+                <h4>حذف الطلب</h4>
+              </div>
+            </div>
+          </div>
+          <!-- Content -->
+          <div class="content mt-3" *ngFor="let prop of allMealCart">
+            <div class="row align-items-center">
+              <!-- meal title -->
+              <div class="col-4">
+                <div class="media">
+                  <img class="ml-4" width="90" height="90" src="{{prop.image}}" alt="placeholder image">
+                  <div class="media-body">
+                    <h4>{{prop.mealTitel}}</h4>
+                    <p>{{prop.mealDescription}}</p>
+                  </div>
+                </div>
+              </div>
+              <!-- price -->
+              <div class="col-2">
+                <h4>{{prop.mealPrice}} ج</h4>
+              </div>
+              <!-- quantity -->
+              <div class="col-2">
+                <h4>{{prop.qty}}</h4>
+              </div>
+              <!-- total -->
+              <div class="col-2">
+                <h4>{{prop.totalOneMeal}} جنية</h4>
+              </div>
+              <!-- confirm -->
+              <div class="col-2">
+                <i class="icon-cancel" (click)="confirmOrder(prop.id)"></i>
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <!-- total price -->
+          <div class="total-price">
+            <div class="row">
+              <div class="col-8">
+                <h4>المجموع</h4>
+              </div>
+              <div class="col-4">
+                <h4> {{totalAllMeals}} جنية</h4>
+
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-8">
+                <h4>الإجمالى + التواصل</h4>
+              </div>
+              <div class="col-4">
+                <h4> {{totalAllMeals + 10}} جنية</h4>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Details -->
+    <section class="contact-info">
+      <div class="text-center headline">
+        <h2>بيانات التواصل</h2>
+        <hr>
+      </div>
+      <div class="address">
+        <div class="container">
+          <h3 class="my-4">العناوين</h3>
+          <div class="row">
+
+            <div class="col-3">
+              <select #optionSelect class="mb-4" name="" (click)='addressFunc()'>
+                <option *ngFor='let prop of addressData'>{{prop.title}}</option>
+              </select>
+            </div>
+
+            <div class="col-9 details">
+              <span *ngFor="let prop of addressData; let i=index; let f=first">
+                <span *ngIf="addressDetail == ' ' && f == true">
+                  {{prop.district}}, {{prop.street}}, {{prop.buildingNo}}, {{prop.floorNo}}, {{prop.flatNo}}, {{prop.notice}}
+                </span>
+              </span>
+              <span *ngIf="addressDetail != ' '">{{addressDetail}}</span>
+
+            </div>
+
+          </div>
+          <div class="new-address mb-4 d-inline-block" (click)='addAddress()'>
+            <i class="icon-plus"></i>
+            <a class="mr-2">إضافة عنوان جديد</a>
+          </div>
+
+          <!-- ========== add new address ========== -->
+          <div class="add-address" *ngIf='addAddressMode'>
+            <form name="add" #add="ngForm" (ngSubmit)="addFunc(add)" novalidate>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <input type="text" #district='ngModel' name="district" [(ngModel)]="newAddress.district" class="form-control" id="exampleInputEmail1"
+                      aria-describedby="emailHelp" placeholder="المنطقة" required>
+                  </div>
+
+                  <!-- validation district message -->
+                  <div *ngIf="district.invalid && (district.dirty || district.touched || add.submitted)">
+                    <div class="error-msg" *ngIf="district.errors.required">
+                      * هذا الحقل مطلوب
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+
+                    <input type="text" #street='ngModel' name="street" [(ngModel)]="newAddress.street" class="form-control" id="exampleInputEmail2"
+                      aria-describedby="emailHelp" placeholder="الشارع" required maxlength="100">
+                  </div>
+
+                  <!-- validation street message -->
+                  <div *ngIf="street.invalid && (street.dirty || street.touched || add.submitted)">
+                    <div class="error-msg" *ngIf="street.errors.required">
+                      * هذا الحقل مطلوب
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <input type="text" #build='ngModel' name="build" [(ngModel)]="newAddress.buildingNo" class="form-control" id="exampleInputEmail3"
+                      aria-describedby="emailHelp" placeholder="رقم العقار" required>
+                  </div>
+
+                  <!-- validation build message -->
+                  <div *ngIf="build.invalid && (build.dirty || build.touched || add.submitted)">
+                    <div class="error-msg" *ngIf="build.errors.required">
+                      * هذا الحقل مطلوب
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-6">
+
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="floor" [(ngModel)]="newAddress.floorNo" id="exampleInputEmail4" aria-describedby="emailHelp"
+                      placeholder="الدور">
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+
+                  <div class="form-group">
+                    <input type="number" min="1" name="num" [(ngModel)]="flatNum" class="form-control" name="flat" [(ngModel)]="newAddress.flatNo"
+                      id="exampleInputEmail5" aria-describedby="emailHelp" placeholder="رقم الشقة">
+                  </div>
+
+                  <!-- validation flatNo message -->
+                  <div class="error-msg " *ngIf="flatNum < 0 || flatNum == 0">
+                    رقم غير صحيح
+                  </div>
+
+
+                </div>
+                <div class="col-6">
+
+                  <div class="form-group">
+                    <input type="text" #nickName='ngModel' class="form-control" name="nickName" [(ngModel)]="newAddress.title" id="exampleInputEmail6"
+                      aria-describedby="emailHelp" placeholder=" اسم مختصر للعنوان ( مثال: منزل - عمل ... )" required>
+                  </div>
+
+                  <!-- validation nickName message -->
+                  <div *ngIf="nickName.invalid && (nickName.dirty || nickName.touched || add.submitted)">
+                    <div class="error-msg" *ngIf="nickName.errors.required">
+                      * هذا الحقل مطلوب
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <textarea maxlength="255" class="form-control" name="notice" [(ngModel)]="newAddress.notice" id="exampleFormControlTextarea1"
+                  rows="3" placeholder="ملاحظات"></textarea>
+              </div>
+
+              <div class="text-left">
+                <button class="btn small-btn" [disabled]="flatNum < 0 || flatNum == 0">حفظ</button>
+              </div>
+
+            </form>
+          </div>
+          <hr class="my-5">
+          <!-- add new phone number -->
+          <div class="phoneNum">
+            <h3 class="mb-4">ارقام التليفون</h3>
+            <div class="row">
+              <div class="col-3">
+                <select #optionSelect2 class="mb-4" name="" (click)='phoneFunc()'>
+                  <option *ngFor='let prop of phoneNumbers'>{{prop.cityNum}}{{prop.phoneNum}}</option>
+                </select>
+              </div>
+              <div class="col-9">
+
+                <span *ngFor="let prop of phoneNumbers; let i=index; let f=first">
+                  <span *ngIf="phoneDetail == ' ' && f == true">
+                    سيتم التواصل على رقم: {{prop.cityNum}}{{prop.phoneNum}}
+                  </span>
+                </span>
+                <span *ngIf="phoneDetail != ' '">سيتم التواصل على رقم: {{phoneDetail}} </span>
+
+              </div>
+            </div>
+
+            <div class="new-address mb-4 d-inline-block" (click)='addPhone()'>
+              <i class="icon-plus"></i>
+              <a class="mr-2">إضافة تليفون جديد</a>
+            </div>
+
+            <div class="add-address" *ngIf='addNewPhoneMode'>
+              <form name="addPhone" #addPhone="ngForm" (ngSubmit)="addFuncPhone(addPhone)">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <input type="text" name="phoneNum" [(ngModel)]="newPhone.phoneNum" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"
+                        placeholder="رقم التليفون">
+                    </div>
+
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+
+                      <select class="form-control" name="numPref" [(ngModel)]="newPhone.cityNum" id="exampleFormControlSelect52">
+                        <option selected>012</option>
+                        <option>010</option>
+                        <option>011</option>
+                        <option>015</option>
+                        <option>03</option>
+                      </select>
+                    </div>
+
+                    <div class="text-left">
+                      <button class="btn small-btn" [disabled]='newPhone.cityNum == "" || newPhone.phoneNum == "" '>حفظ</button>
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+
+          </div>
+          <hr>
+          <div class="text-danger">* يرجى العلم انه سيتم دفع المبلغ كاش عند استلام الطلب</div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="text-center mt-5">
+      <button class="btn big-btn" (click)='confirmOrderFinal()'>تأكيد الطلب</button>
+    </div>
+
+  </div>
+</section>

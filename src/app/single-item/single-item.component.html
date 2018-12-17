@@ -1,0 +1,53 @@
+<section>
+  <!-- ==========Navbar========== -->
+  <app-menu-page-header></app-menu-page-header>
+
+  <div class="container singleMeal">
+    <div class="row">
+      <!-- ============= single product ============== -->
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <img class="card-img-top" src="{{singleData.singleImg}}" alt="Card image cap">
+
+          <div class="card-body pr-0">
+            <!-- ============== favourite ================ -->
+            <img class="fav rounded-circle p-3" *ngIf="singleData.favorite=='false'; else elseCase" [(ngModel)]="singleData.favorite"
+              src="../../assets/images/not-fav.png" alt="">
+            <ng-template #elseCase>
+              <img class="fav rounded-circle p-3" src="../../assets/images/fav.png" alt="">
+            </ng-template>
+
+            <div class="d-flex justify-content-between headline">
+              <h2 class="card-title mb-4">{{singleData.mealTitel}}</h2>
+              <h2 class="pl-5">{{singleData.mealPrice}} ج</h2>
+              <!--Start meal rating  -->
+              <ngb-rating [(rate)]="singleData.mealRate" max=5 [readonly]="true">
+                <ng-template let-fill="fill">
+                  <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                </ng-template>
+              </ngb-rating>
+              <!--end meal rating -->
+            </div>
+            <p class="mb-4">{{singleData.mealDescription}}</p>
+            <div class="d-flex justify-content-between pl-5">
+              <p class="card-title">الشيف : {{singleData.cookerName}}</p>
+              <p>عدد مرات الطلب: {{singleData.orders}}</p>
+            </div>
+            <button class="small-btn" (click)="addToCart()" >اطلب</button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- =========== cart component =============== -->
+      <div class="col-md-4">
+        <app-cart #cart></app-cart>
+      </div>
+    </div>
+  </div>
+  <div class="container mealCmnts">
+    <!-- ================= comments component ================ -->
+    <app-meal-comment [data]="singleData.id"></app-meal-comment>
+  </div>
+</section>

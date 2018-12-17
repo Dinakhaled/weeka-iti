@@ -1,0 +1,38 @@
+[
+    {
+        "title":"منزل",
+        "district": "لوران",
+        "street": "شارع الاقبال",
+        "buildingNo": "12",
+        "floorNo": "الدور الثاني",
+        "flatNo": "3",
+        "notice": "بجوار ماكدونالدز"
+    },
+    {
+        "title":"عمل",
+        "district": "العجمى",
+        "street": "شارع الاقبال",
+        "buildingNo": "12",
+        "floorNo": "الدور الثاني",
+        "flatNo": "3",
+        "notice": "بجوار ماكدونالدز"
+    },
+    {
+        "title":"جدتى",
+        "district": "رشدى",
+        "street": "شارع الاقبال",
+        "buildingNo": "12",
+        "floorNo": "الدور الثاني",
+        "flatNo": "3",
+        "notice": "بجوار ماكدونالدز"
+    },
+    {
+        "title":"عمى",
+        "district": "المعمورة",
+        "street": "شارع الاقبال",
+        "buildingNo": "12",
+        "floorNo": "الدور الثاني",
+        "flatNo": "3",
+        "notice": "بجوار ماكدونالدز"
+    }
+]

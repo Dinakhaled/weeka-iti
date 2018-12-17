@@ -1,0 +1,27 @@
+@import 'variables';
+@import 'reset';
+@import 'mixins';
+.tabs{
+    padding: $section-space 0;
+    
+    .edit{
+        padding-top: $section-space;
+    }
+}
+
+//========= bootstrap style override =========
+:host /deep/ .nav-pills{
+    padding-bottom: $section-space;
+    justify-content: center !important;
+}
+:host /deep/ .nav-pills .nav-link.active{
+    background-color: $mainColor;
+    color:#fff;
+}
+:host /deep/ .nav-pills .nav-link{
+    color: $headlinesColor;
+    font-family: $headlinesFonts;
+    @include font-size(25px);  
+    margin-left:10px;
+    border-radius: 0; 
+}

@@ -1,0 +1,44 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/general';
+@import '../../scss/order-table';
+// client order page
+.client-order{
+    padding: $section-space 0px;
+    .contact-info{
+        hr{
+            margin-bottom: 80px;
+        }
+        select{
+            width: 100%;
+            border:none;
+            border-bottom: 1px solid $textColor;
+            &:focus{
+                border-color: $sconedColor;
+            }
+        }
+        .details{
+            @include font-size(18px); 
+        }
+        .new-address{
+            i{
+                font-size: 20px;
+                color: $whiteColor;
+                background-color:$mainColor;
+                padding: 5px;
+                border-radius: 50%;
+            }
+        }
+        .add-address{
+            input,textarea,select{
+                border:none;
+                border-bottom: 1px solid $textColor; 
+                border-radius: 0;
+                &:focus{
+                    border-color: $sconedColor;     
+                    box-shadow: none;               
+                }               
+            }
+        }
+    }
+}

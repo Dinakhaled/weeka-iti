@@ -1,0 +1,112 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/general';
+
+.cart{
+    // position: fixed;
+    background: $whiteColor;
+    box-shadow: 0px 3px 10px 0px rgba(133, 133, 133, 0.25);
+    padding: 25px 20px;
+    h3{
+        font-family: $headlinesFonts;
+        margin-bottom: 25px;
+    }
+    .media{
+        padding-bottom: 25px;
+        margin-bottom: 25px;        
+        border-bottom: 2px dashed $textColor;
+        h4{
+            font-family: $headlinesFonts;                   
+        }
+        .ar-price{
+            font-family: $headlinesFontBold;                               
+        }
+        .meal-title{
+            margin-bottom: 25px;                    
+        }
+        i.icon-cancel{
+            color: $mainColor;
+            cursor: pointer;            
+        }
+    }
+    h4{
+        @include font-size(20px); 
+        font-family: $headlinesFontBold;       
+    }
+    .checkout{
+        .cancel-order{
+            color: $headlinesColor;
+            background: $sconedColor;
+            font-family: $headlinesFontBold;       
+            border-radius: 0;
+            padding: 5px 90px;
+            margin-bottom: 25px;
+        }
+        .checkout-btn{
+            @extend .cancel-order;
+            padding: 5px 40px;
+            background: $mainColor;
+            color: $whiteColor;
+            margin-bottom: 0px;
+            margin-left: 5px;
+        }
+        h4{
+            margin-bottom: 25px;
+        }
+    }
+    .empty-cart{
+        padding: 50px;
+        i{
+            color: $textColor;
+            font-size: 70px;
+        }
+    }
+}
+//Decrease And Increase Input
+.qty-input {
+    position: relative;
+    font-family: $headlinesFontBold;
+    display: inline-block;
+    i{
+        cursor: pointer;
+        height: 30px;
+        float: left;
+        line-height: 30px;
+        text-align: center;
+        transition: all 150ms ease-out;
+        width: 30px;
+        background: $sconedColor;
+        color: $headlinesColor;
+        font-size: 16px;
+        user-select: none;
+        &:active{
+            background-color: $mainColor;
+            transition: none;
+            color:$whiteColor;
+        }  
+    }
+    input{
+        border:0px;
+        float: left;
+        font-size: 16px;
+        height: 35px;
+        text-align: center;
+        outline: none;
+        width: 35px;
+    }
+  }
+  select{
+      border:none;
+      border-bottom: 1px solid $textColor;
+  }
+  .date-btn{
+      border-radius: 0;
+      background: $mainColor;
+      color: $whiteColor;
+  }
+
+  .custom-modal{
+      h4,label{
+          font-family: $headlinesFonts;
+      }
+  }

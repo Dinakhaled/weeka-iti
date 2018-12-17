@@ -1,0 +1,56 @@
+<section class="history">
+  <div class="container">
+    <!-- =========== history ================= -->
+    <div *ngFor="let meal of historyMeals">
+      <div class="media smallCard weekaCard w-100 mb-5 align-items-center">
+        <a routerLink="/singleItem/{{(meal.mealTitel)}}">
+          <img class="cardImg" src="{{meal.image}}" alt="Generic placeholder image">
+        </a>
+        <div class="media-body position-relative text-center">
+          <!-- Start fav meal icon -->
+          <div class="btn-group btn-group-toggle fav">
+            <label class="btn-primary custom" ngbButtonLabel>
+              <input type="checkbox" ngbButton [(ngModel)]="meal.favorite">
+              <div *ngIf="meal.favorite==false ">
+                <img class="" src="../../assets/images/not-fav.png" alt="">
+              </div>
+              <div *ngIf="meal.favorite==true ">
+                <img class="" src="../../assets/images/fav.png" alt="">
+              </div>
+            </label>
+          </div>
+          <!--end fav meal icon -->
+          <!--Start meal rating  -->
+          <ngb-rating [(rate)]="meal.mealRate" max=5 [readonly]="true">
+            <ng-template let-fill="fill">
+              <span class="star" [class.filled]="fill === 100">&#9733;</span>
+            </ng-template>
+          </ngb-rating>
+          <!--end meal rating -->
+          <h3 class="mt-0 mb-4">{{meal.mealTitel}}</h3>
+          <div class="price rounded-circle position-absolute">
+            <h3> {{meal.mealPrice}} ج </h3>
+            <div class="price-bg rounded-circle position-absolute">
+            </div>
+          </div>
+
+            <button class="small-btn" (click)="addToCartHistory(meal.id)">اطلب</button>
+
+          <div class="media-footer mb-4">
+            <div class="row">
+              <div class="col-md-6">
+                <p>الشيف: {{meal.cookerName}}</p>
+              </div>
+              <div class="col-md-6">
+                <p> التاريخ : {{meal.date}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-left">
+      <button class="btn big-btn">المزيد</button>
+    </div>
+  </div>
+</section>
